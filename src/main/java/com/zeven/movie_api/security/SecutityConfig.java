@@ -16,6 +16,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecutityConfig {
 
+    // Ruta de acceso a consola h2: http://localhost:8080/h2-console
+
     @Bean
     public SecurityFilterChain filterChain(final HttpSecurity http) throws Exception {
         http

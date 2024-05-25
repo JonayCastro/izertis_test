@@ -2,6 +2,8 @@ package com.zeven.movie_api.services;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.zeven.movie_api.daos.MovieDao;
+import com.zeven.movie_api.mappers.MovieMapper;
 import com.zeven.movie_api.vo.MovieSearchVO;
 import com.zeven.movie_api.vo.MovieVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +17,20 @@ import java.util.List;
 public class MovieService {
 
     private final WebClient webClient;
-    private final ObjectMapper mapper;
+    private final ObjectMapper objectMapper;
+    private final MovieDao movieDao;
+    private final MovieMapper mapper;
 
     @Value("${movie.api.access.key}")
     private String apiKey;
 
 
     @Autowired
-    public MovieService(WebClient webClient, ObjectMapper objectMapper) {
+    public MovieService(final WebClient webClient, final ObjectMapper objectMapper, final MovieDao movieDao, final MovieMapper mapper) {
         this.webClient = webClient;
-        this.mapper = objectMapper;
+        this.objectMapper = objectMapper;
+        this.movieDao = movieDao;
+        this.mapper = mapper;
     }
 
     public List<MovieVO> getMoviesByName(final String movieName){

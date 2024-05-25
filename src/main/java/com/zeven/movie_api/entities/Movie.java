@@ -22,7 +22,7 @@ public class Movie {
     private String title;
 
     @Column(name = "is_adult")
-    private Boolean isAdult;
+    private Boolean isAdultContent;
 
     @Column(name = "overview")
     private String overview;

@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
-class MovieApiApplicationTests {
+class FavouriteMovieApiApplicationTests {
 
     @Autowired
     private MovieService movieService;

@@ -7,11 +7,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "movies_api_list")
+@Table(name = "favourite_movies")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Movie {
+public class FavouriteMovie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

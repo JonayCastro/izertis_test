@@ -12,7 +12,6 @@ import lombok.experimental.Accessors;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MovieVO {
 
-    private Long movieId;
     private String title;
     private String overview;
     @JsonProperty("adult")

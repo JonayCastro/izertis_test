@@ -2,12 +2,15 @@ package com.zeven.movie_api.services;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zeven.movie_api.daos.MovieDao;
+import com.zeven.movie_api.daos.FavouriteMovieDao;
+import com.zeven.movie_api.entities.FavouriteMovie;
 import com.zeven.movie_api.mappers.MovieMapper;
 import com.zeven.movie_api.vo.MovieSearchVO;
 import com.zeven.movie_api.vo.MovieVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -18,7 +21,7 @@ public class MovieService {
 
     private final WebClient webClient;
     private final ObjectMapper objectMapper;
-    private final MovieDao movieDao;
+    private final FavouriteMovieDao favouriteMovieDao;
     private final MovieMapper mapper;
 
     @Value("${movie.api.access.key}")
@@ -26,10 +29,10 @@ public class MovieService {
 
 
     @Autowired
-    public MovieService(final WebClient webClient, final ObjectMapper objectMapper, final MovieDao movieDao, final MovieMapper mapper) {
+    public MovieService(final WebClient webClient, final ObjectMapper objectMapper, final FavouriteMovieDao favouriteMovieDao, final MovieMapper mapper) {
         this.webClient = webClient;
         this.objectMapper = objectMapper;
-        this.movieDao = movieDao;
+        this.favouriteMovieDao = favouriteMovieDao;
         this.mapper = mapper;
     }
 
@@ -44,6 +47,12 @@ public class MovieService {
                 .bodyToMono(MovieSearchVO.class)
                 .map(MovieSearchVO::getMoviesVOs)
                 .block();
+    }
+
+    public ResponseEntity<MovieVO> saveFavouriteMovie(final MovieVO movieVO){
+        FavouriteMovie favouriteMovie = mapper.movieVOToMovie(movieVO);
+        favouriteMovieDao.save(favouriteMovie);
+        return new ResponseEntity<>(mapper.movieToMovieVO(favouriteMovie), HttpStatus.CREATED);
     }
 
 }

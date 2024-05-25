@@ -55,4 +55,9 @@ public class MovieService {
         return new ResponseEntity<>(mapper.movieToMovieVO(favouriteMovie), HttpStatus.CREATED);
     }
 
+    public ResponseEntity<List<FavouriteMovie>> getFavouriteMovieList(){
+        List<FavouriteMovie> favouriteMovies = favouriteMovieDao.findAll();
+        return new ResponseEntity<>(favouriteMovies, HttpStatus.ACCEPTED);
+    }
+
 }

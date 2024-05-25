@@ -5,4 +5,5 @@ public class ApiPaths {
     public static final String PATH_MOVIES = "/movies";
     public static final String PATH_LIST_MOVIE = "/list-movies";
     public static final String PATH_SAVE_MOVIE = "/movie-save";
+    public static final String PATH_FAVOURITE_MOVIE = "/favourite-movie";
 }

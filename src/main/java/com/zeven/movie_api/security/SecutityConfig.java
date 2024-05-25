@@ -17,6 +17,9 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecutityConfig {
 
     // Ruta de acceso a consola h2: http://localhost:8080/h2-console
+    // JDBC URL: jdbc:h2:mem:testdb
+    // User Name: sa
+    // Password: pass
 
     @Bean
     public SecurityFilterChain filterChain(final HttpSecurity http) throws Exception {

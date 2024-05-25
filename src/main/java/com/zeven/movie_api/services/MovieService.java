@@ -59,6 +59,9 @@ public class MovieService {
             favouriteMovieDao.save(favouriteMovie);
         }catch (DataIntegrityViolationException exception){
             response = new ResponseEntity<>(ApiErrorMessage.FAVOURITE_MOVIE_ALREADY_EXISTS, HttpStatus.CONFLICT);
+        }catch (Exception exception){
+            String errorMessage = ApiErrorMessage.ANY_EXCEPTION + exception.getMessage();
+            response = new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return response;
     }

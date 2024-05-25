@@ -23,6 +23,7 @@ public class SecutityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/h2-console/**").permitAll()
+                        .requestMatchers("/movies/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(withDefaults -> {})

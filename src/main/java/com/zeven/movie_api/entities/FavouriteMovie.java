@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "favourite_movies")
+@Table(name = "favourite_movies", uniqueConstraints = @UniqueConstraint(columnNames = "title", name = "UK_title"))
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -24,7 +24,7 @@ public class FavouriteMovie {
     @Column(name = "is_adult")
     private Boolean isAdultContent;
 
-    @Column(name = "overview")
+    @Column(name = "overview", columnDefinition = "TEXT")
     private String overview;
 
 }

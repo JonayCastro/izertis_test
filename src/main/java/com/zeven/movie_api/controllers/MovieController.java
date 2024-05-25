@@ -26,7 +26,7 @@ public class MovieController {
     }
 
     @PostMapping(value = ApiPaths.PATH_MOVIES + ApiPaths.PATH_SAVE_MOVIE)
-    public ResponseEntity<MovieVO> saveFavouriteMovie(@RequestBody final MovieVO movieVO) {
+    public ResponseEntity<Object> saveFavouriteMovie(@RequestBody final MovieVO movieVO) {
         return movieService.saveFavouriteMovie(movieVO);
     }
 

@@ -10,6 +10,7 @@ import com.zeven.movie_api.vo.MovieSearchVO;
 import com.zeven.movie_api.vo.MovieVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -51,10 +52,15 @@ public class MovieService {
                 .block();
     }
 
-    public ResponseEntity<MovieVO> saveFavouriteMovie(final MovieVO movieVO){
+    public ResponseEntity<Object> saveFavouriteMovie(final MovieVO movieVO){
         FavouriteMovie favouriteMovie = mapper.movieVOToFavouriteMovie(movieVO);
-        favouriteMovieDao.save(favouriteMovie);
-        return new ResponseEntity<>(mapper.favouriteMovieToMovieVO(favouriteMovie), HttpStatus.CREATED);
+        ResponseEntity<Object> response = new ResponseEntity<>(favouriteMovie, HttpStatus.CREATED);
+        try{
+            favouriteMovieDao.save(favouriteMovie);
+        }catch (DataIntegrityViolationException exception){
+            response = new ResponseEntity<>(ApiErrorMessage.FAVOURITE_MOVIE_ALREADY_EXISTS, HttpStatus.CONFLICT);
+        }
+        return response;
     }
 
     public ResponseEntity<List<FavouriteMovie>> getFavouriteMovieList(){

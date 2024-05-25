@@ -30,8 +30,13 @@ public class MovieController {
         return movieService.saveFavouriteMovie(movieVO);
     }
 
-    @GetMapping(value = ApiPaths.PATH_MOVIES + ApiPaths.PATH_FAVOURITE_MOVIE)
+    @GetMapping(value = ApiPaths.PATH_MOVIES + ApiPaths.PATH_FAVOURITE_MOVIE_LIST)
     public ResponseEntity<List<FavouriteMovie>> getFavouriteMovieList() {
         return movieService.getFavouriteMovieList();
+    }
+
+    @GetMapping(value = ApiPaths.PATH_MOVIES + ApiPaths.PATH_FAVOURITE_MOVIE_BY_NAME)
+    public ResponseEntity<Object> getFavouriteMovieByTitle(@RequestParam final String movieTitle) {
+        return movieService.getFavouriteMovieByName(movieTitle);
     }
 }

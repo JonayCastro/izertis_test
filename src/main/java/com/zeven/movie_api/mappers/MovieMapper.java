@@ -8,6 +8,6 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 @Mapper(componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface MovieMapper {
 
-    FavouriteMovie movieVOToMovie(MovieVO movieVO);
-    MovieVO movieToMovieVO(FavouriteMovie favouriteMovie);
+    FavouriteMovie movieVOToFavouriteMovie(MovieVO movieVO);
+    MovieVO favouriteMovieToMovieVO(FavouriteMovie favouriteMovie);
 }

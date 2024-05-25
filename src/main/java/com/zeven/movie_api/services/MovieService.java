@@ -2,6 +2,7 @@ package com.zeven.movie_api.services;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.zeven.movie_api.config.ApiErrorMessage;
 import com.zeven.movie_api.daos.FavouriteMovieDao;
 import com.zeven.movie_api.entities.FavouriteMovie;
 import com.zeven.movie_api.mappers.MovieMapper;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieService {
@@ -50,14 +52,24 @@ public class MovieService {
     }
 
     public ResponseEntity<MovieVO> saveFavouriteMovie(final MovieVO movieVO){
-        FavouriteMovie favouriteMovie = mapper.movieVOToMovie(movieVO);
+        FavouriteMovie favouriteMovie = mapper.movieVOToFavouriteMovie(movieVO);
         favouriteMovieDao.save(favouriteMovie);
-        return new ResponseEntity<>(mapper.movieToMovieVO(favouriteMovie), HttpStatus.CREATED);
+        return new ResponseEntity<>(mapper.favouriteMovieToMovieVO(favouriteMovie), HttpStatus.CREATED);
     }
 
     public ResponseEntity<List<FavouriteMovie>> getFavouriteMovieList(){
         List<FavouriteMovie> favouriteMovies = favouriteMovieDao.findAll();
         return new ResponseEntity<>(favouriteMovies, HttpStatus.ACCEPTED);
+    }
+
+    public ResponseEntity<Object> getFavouriteMovieByName(final String movieTitle){
+        ResponseEntity<Object> response = new ResponseEntity<>(ApiErrorMessage.FAVOURITE_MOVIE_NOT_FOUND, HttpStatus.NOT_FOUND);
+        FavouriteMovie favouriteMovie = favouriteMovieDao.findFavouriteMovieByTitle(movieTitle).orElse(null);
+        if(favouriteMovie != null){
+            MovieVO movieVO = mapper.favouriteMovieToMovieVO(favouriteMovie);
+            response = new ResponseEntity<>(movieVO, HttpStatus.ACCEPTED);
+        }
+        return response;
     }
 
 }

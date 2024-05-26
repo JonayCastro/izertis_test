@@ -81,4 +81,14 @@ public class MovieService {
         return response;
     }
 
+    public ResponseEntity<Object> deleteFavouriteMovie(final String movieTitle){
+        ResponseEntity<Object> response = new ResponseEntity<>(ApiErrorMessage.FAVOURITE_MOVIE_NOT_FOUND, HttpStatus.NOT_FOUND);
+        FavouriteMovie favouriteMovie = favouriteMovieDao.findFavouriteMovieByTitle(movieTitle).orElse(null);
+        if(favouriteMovie != null){
+            favouriteMovieDao.delete(favouriteMovie);
+            response = new ResponseEntity<>(true, HttpStatus.ACCEPTED);
+        }
+        return response;
+    }
+
 }

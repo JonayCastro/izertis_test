@@ -39,4 +39,9 @@ public class MovieController {
     public ResponseEntity<Object> getFavouriteMovieByTitle(@RequestParam final String movieTitle) {
         return movieService.getFavouriteMovieByName(movieTitle);
     }
+
+    @DeleteMapping(value = ApiPaths.PATH_MOVIES + ApiPaths.PATH_DELETE_OF_FAVOURITE)
+    public ResponseEntity<Object> deleteFavouriteMovie(@RequestParam final String movieTitle) {
+        return movieService.deleteFavouriteMovie(movieTitle);
+    }
 }

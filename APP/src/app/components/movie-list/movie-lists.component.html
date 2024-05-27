@@ -1,0 +1,15 @@
+<div class="list-master-container">
+  <h2 class="list-name">Lista de resultados</h2>
+  <div class="list-empty-message" *ngIf="movieList.length === 0">
+    <h2>Lista vacía</h2>
+  </div>
+  <div *ngFor="let movie of movieList; let i = index"
+       class="movie-item">
+    <h4>{{ movie.title }}</h4>
+    <p>{{ movie.overview }}</p>
+    <p><strong>Contenido para adultos:</strong> {{ movie.isAdultContent ? 'Sí' : 'No' }}</p>
+    <button (click)="addToFavourites(movie)">Añadir a favoritos</button>
+  </div>
+
+</div>
+

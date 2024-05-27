@@ -1,0 +1,20 @@
+services:
+  app:
+    container_name: MOVIE_CLIENT
+    build: ./APP
+    ports:
+      - 4200:4200
+    volumes:
+      - ./APP:/APP
+      - /APP/node_modules
+      - /APP/dist
+    depends_on:
+      - api
+
+  api:
+    container_name: MOVIE_API
+    build:
+      context: ./API
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080

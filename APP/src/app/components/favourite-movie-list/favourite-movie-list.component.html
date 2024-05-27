@@ -1,0 +1,12 @@
+<div class="list-master-container">
+  <h2 class="list-name">Lista de favoritos</h2>
+  <div class="list-empty-message" *ngIf="favouriteMovieList.length === 0">
+    <h2>Lista vacía</h2>
+  </div>
+  <div *ngFor="let movie of favouriteMovieList" class="movie-item">
+    <h4>{{ movie.title }}</h4>
+    <p>{{ movie.overview }}</p>
+    <p><strong>Contenido para adultos:</strong> {{ movie.isAdultContent ? 'Sí' : 'No' }}</p>
+    <button (click)="deleteMovie(movie)">Eliminar de favoritos</button>
+  </div>
+</div>

@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6ad517bd-a02b-4a5e-95f3-a547c56b83c7" name="Changes" comment="Can delete movie in favourite list">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.jetclient/Movies/_folder.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zeven/movie_api/MovieApiApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zeven/movie_api/config/ApiConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zeven/movie_api/config/ApiErrorMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zeven/movie_api/config/ApiPaths.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zeven/movie_api/config/WebClientConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zeven/movie_api/controllers/MovieController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zeven/movie_api/daos/FavouriteMovieDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zeven/movie_api/entities/FavouriteMovie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zeven/movie_api/mappers/MovieMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zeven/movie_api/security/SecutityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zeven/movie_api/security/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zeven/movie_api/services/MovieService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zeven/movie_api/vo/MovieSearchVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zeven/movie_api/vo/MovieVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/zeven/movie_api/FavouriteMovieApiApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2gvhUBm93kGzqg5XAPzvpJEyOg0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.FavouriteMovieApiApplicationTests.canGetMovieList.executor": "Run",
+    "JUnit.MovieApiApplicationTests.canAuthenticate.executor": "Debug",
+    "JUnit.MovieApiApplicationTests.canGetMovieByName.executor": "Run",
+    "JUnit.MovieApiApplicationTests.canGetMovieList.executor": "Run",
+    "JUnit.MovieApiApplicationTests.canSearchMovieByName.executor": "Run",
+    "Maven.Clean Install.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.MovieApiApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/JonayCastroSuarez/Sandbox/movie_api/API",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "ts.external.directory.path": "C:\\Users\\JonayCastroSuarez\\Sandbox\\movie_api\\APP\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RunManager" selected="JUnit.FavouriteMovieApiApplicationTests.canGetMovieByName">
+    <configuration name="FavouriteMovieApiApplicationTests.canAuthenticate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="movie_api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zeven.movie_api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zeven.movie_api" />
+      <option name="MAIN_CLASS_NAME" value="com.zeven.movie_api.FavouriteMovieApiApplicationTests" />
+      <option name="METHOD_NAME" value="canAuthenticate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FavouriteMovieApiApplicationTests.canGetMovieByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="movie_api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zeven.movie_api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zeven.movie_api" />
+      <option name="MAIN_CLASS_NAME" value="com.zeven.movie_api.FavouriteMovieApiApplicationTests" />
+      <option name="METHOD_NAME" value="canGetMovieByName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FavouriteMovieApiApplicationTests.canGetMovieList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="movie_api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zeven.movie_api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zeven.movie_api" />
+      <option name="MAIN_CLASS_NAME" value="com.zeven.movie_api.FavouriteMovieApiApplicationTests" />
+      <option name="METHOD_NAME" value="canGetMovieList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FavouriteMovieApiApplicationTests.canSearchMovieByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="movie_api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zeven.movie_api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.zeven.movie_api" />
+      <option name="MAIN_CLASS_NAME" value="com.zeven.movie_api.FavouriteMovieApiApplicationTests" />
+      <option name="METHOD_NAME" value="canSearchMovieByName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Clean Install" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="install" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.FavouriteMovieApiApplicationTests.canGetMovieByName" />
+      <item itemvalue="JUnit.FavouriteMovieApiApplicationTests.canGetMovieList" />
+      <item itemvalue="JUnit.FavouriteMovieApiApplicationTests.canSearchMovieByName" />
+      <item itemvalue="JUnit.FavouriteMovieApiApplicationTests.canAuthenticate" />
+      <item itemvalue="Maven.Clean Install" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.FavouriteMovieApiApplicationTests.canGetMovieList" />
+        <item itemvalue="JUnit.FavouriteMovieApiApplicationTests.canSearchMovieByName" />
+        <item itemvalue="JUnit.FavouriteMovieApiApplicationTests.canGetMovieByName" />
+        <item itemvalue="JUnit.FavouriteMovieApiApplicationTests.canAuthenticate" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ad517bd-a02b-4a5e-95f3-a547c56b83c7" name="Changes" comment="" />
+      <created>1716583971753</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716583971753</updated>
+      <workItem from="1716583972799" duration="11068000" />
+      <workItem from="1716624132927" duration="15593000" />
+      <workItem from="1716652536689" duration="4396000" />
+      <workItem from="1716718831998" duration="5436000" />
+      <workItem from="1716791892382" duration="3279000" />
+      <workItem from="1716799811401" duration="33000" />
+      <workItem from="1716800332247" duration="105000" />
+    </task>
+    <task id="LOCAL-00001" summary="Security and database config added">
+      <option name="closed" value="true" />
+      <created>1716586012207</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716586012207</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Replace wrong configuration">
+      <option name="closed" value="true" />
+      <created>1716586172150</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716586172150</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Can get movie by name">
+      <option name="closed" value="true" />
+      <created>1716597782869</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716597782869</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Can parse results to Vos">
+      <option name="closed" value="true" />
+      <created>1716599864709</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716599864709</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Create movie controller and refactor">
+      <option name="closed" value="true" />
+      <created>1716625894512</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716625894512</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Create movie entity and dao">
+      <option name="closed" value="true" />
+      <created>1716626465054</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716626465054</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added MapStruct">
+      <option name="closed" value="true" />
+      <created>1716628834130</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716628834130</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Refactor">
+      <option name="closed" value="true" />
+      <created>1716630489903</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716630489903</updated>
+    </task>
+    <task id="LOCAL-00009" summary="We can save a favourite movie and get list of that favourite movies">
+      <option name="closed" value="true" />
+      <created>1716631190124</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716631190124</updated>
+    </task>
+    <task id="LOCAL-00010" summary="We can find favourite movie by title">
+      <option name="closed" value="true" />
+      <created>1716634299549</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716634299549</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add title constraint">
+      <option name="closed" value="true" />
+      <created>1716635983559</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716635983559</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add h2 console info">
+      <option name="closed" value="true" />
+      <created>1716636204970</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716636204970</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add more context to exceptions when try save favourite movie">
+      <option name="closed" value="true" />
+      <created>1716637251465</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1716637251465</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Can delete movie in favourite list">
+      <option name="closed" value="true" />
+      <created>1716730111001</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1716730111001</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Security and database config added" />
+    <MESSAGE value="Replace wrong configuration" />
+    <MESSAGE value="Can get movie by name" />
+    <MESSAGE value="Can parse results to Vos" />
+    <MESSAGE value="Create movie controller and refactor" />
+    <MESSAGE value="Create movie entity and dao" />
+    <MESSAGE value="Added MapStruct" />
+    <MESSAGE value="Refactor" />
+    <MESSAGE value="We can save a favourite movie and get list of that favourite movies" />
+    <MESSAGE value="We can find favourite movie by title" />
+    <MESSAGE value="Add title constraint" />
+    <MESSAGE value="Add h2 console info" />
+    <MESSAGE value="Add more context to exceptions when try save favourite movie" />
+    <MESSAGE value="Can delete movie in favourite list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Can delete movie in favourite list" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zeven/movie_api/controllers/MovieController.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zeven/movie_api/services/MovieService.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zeven/movie_api/controllers/MovieController.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zeven/movie_api/controllers/MovieController.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zeven/movie_api/services/MovieService.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

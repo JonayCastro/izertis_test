@@ -1,0 +1,31 @@
+:root {
+  box-sizing: border-box;
+}
+
+.master_container {
+  background: aqua;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  border: 3px solid black;
+  width: inherit;
+}
+
+.lists-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  border: 2px solid black;
+  gap: 20px;
+}
+
+.lists-container > * {
+  flex: 1;
+  max-width: 50%;
+  box-sizing: border-box;
+  border: 1px solid grey;
+  background: blanchedalmond;
+  border-radius: 10px;
+}

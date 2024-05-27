@@ -1,0 +1,16 @@
+.search-container{
+  background: antiquewhite;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  border: 3px solid black;
+  width: inherit;
+  height: 100px;
+}
+.search-area{
+  width: inherit;
+}
+input{
+  width: 100%;
+  padding: 5px;
+}

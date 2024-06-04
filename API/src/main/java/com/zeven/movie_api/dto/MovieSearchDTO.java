@@ -1,4 +1,4 @@
-package com.zeven.movie_api.vo;
+package com.zeven.movie_api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,11 +13,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MovieSearchVO {
+public class MovieSearchDTO {
 
     private int page;
     @JsonProperty("results")
-    private List<MovieVO> moviesVOs = new ArrayList<>();
+    private List<MovieDTO> moviesVOs = new ArrayList<>();
     @JsonProperty("total_pages")
     private int totalPage;
     @JsonProperty("total_results")

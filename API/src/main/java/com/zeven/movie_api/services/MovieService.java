@@ -4,10 +4,10 @@ package com.zeven.movie_api.services;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zeven.movie_api.config.ApiErrorMessage;
 import com.zeven.movie_api.daos.FavouriteMovieDao;
+import com.zeven.movie_api.dto.MovieDTO;
+import com.zeven.movie_api.dto.MovieSearchDTO;
 import com.zeven.movie_api.entities.FavouriteMovie;
 import com.zeven.movie_api.mappers.MovieMapper;
-import com.zeven.movie_api.vo.MovieSearchVO;
-import com.zeven.movie_api.vo.MovieVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class MovieService {
@@ -30,7 +29,6 @@ public class MovieService {
     @Value("${movie.api.access.key}")
     private String apiKey;
 
-
     @Autowired
     public MovieService(final WebClient webClient, final ObjectMapper objectMapper, final FavouriteMovieDao favouriteMovieDao, final MovieMapper mapper) {
         this.webClient = webClient;
@@ -39,7 +37,7 @@ public class MovieService {
         this.mapper = mapper;
     }
 
-    public List<MovieVO> getMoviesByName(final String movieName){
+    public List<MovieDTO> getMoviesByName(final String movieName){
         return webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/search/movie")
@@ -47,48 +45,38 @@ public class MovieService {
                         .queryParam("query", movieName)
                         .build())
                 .retrieve()
-                .bodyToMono(MovieSearchVO.class)
-                .map(MovieSearchVO::getMoviesVOs)
+                .bodyToMono(MovieSearchDTO.class)
+                .map(MovieSearchDTO::getMoviesVOs)
                 .block();
     }
 
-    public ResponseEntity<Object> saveFavouriteMovie(final MovieVO movieVO){
-        FavouriteMovie favouriteMovie = mapper.movieVOToFavouriteMovie(movieVO);
+    public ResponseEntity<Object> saveFavouriteMovie(final MovieDTO movieDTO){
+        FavouriteMovie favouriteMovie = mapper.movieVOToFavouriteMovie(movieDTO);
         ResponseEntity<Object> response = new ResponseEntity<>(favouriteMovie, HttpStatus.CREATED);
         try{
             favouriteMovieDao.save(favouriteMovie);
-        }catch (DataIntegrityViolationException exception){
+        } catch (DataIntegrityViolationException exception){
             response = new ResponseEntity<>(ApiErrorMessage.FAVOURITE_MOVIE_ALREADY_EXISTS, HttpStatus.CONFLICT);
-        }catch (Exception exception){
+        } catch (Exception exception){
             String errorMessage = ApiErrorMessage.ANY_EXCEPTION + exception.getMessage();
             response = new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return response;
     }
 
-    public ResponseEntity<List<FavouriteMovie>> getFavouriteMovieList(){
-        List<FavouriteMovie> favouriteMovies = favouriteMovieDao.findAll();
-        return new ResponseEntity<>(favouriteMovies, HttpStatus.ACCEPTED);
+    public List<FavouriteMovie> getFavouriteMovieList(){
+        return favouriteMovieDao.findAll();
     }
 
-    public ResponseEntity<Object> getFavouriteMovieByName(final String movieTitle){
-        ResponseEntity<Object> response = new ResponseEntity<>(ApiErrorMessage.FAVOURITE_MOVIE_NOT_FOUND, HttpStatus.NOT_FOUND);
-        FavouriteMovie favouriteMovie = favouriteMovieDao.findFavouriteMovieByTitle(movieTitle).orElse(null);
-        if(favouriteMovie != null){
-            MovieVO movieVO = mapper.favouriteMovieToMovieVO(favouriteMovie);
-            response = new ResponseEntity<>(movieVO, HttpStatus.ACCEPTED);
-        }
-        return response;
+    public MovieDTO getFavouriteMovieByName(final String movieTitle){
+        FavouriteMovie favouriteMovie = favouriteMovieDao.findFavouriteMovieByTitle(movieTitle)
+                .orElseThrow(() -> new RuntimeException(ApiErrorMessage.MOVIE_NOT_FOUND));
+        return mapper.favouriteMovieToMovieVO(favouriteMovie);
     }
 
-    public ResponseEntity<Object> deleteFavouriteMovie(final String movieTitle){
-        ResponseEntity<Object> response = new ResponseEntity<>(ApiErrorMessage.FAVOURITE_MOVIE_NOT_FOUND, HttpStatus.NOT_FOUND);
-        FavouriteMovie favouriteMovie = favouriteMovieDao.findFavouriteMovieByTitle(movieTitle).orElse(null);
-        if(favouriteMovie != null){
-            favouriteMovieDao.delete(favouriteMovie);
-            response = new ResponseEntity<>(true, HttpStatus.ACCEPTED);
-        }
-        return response;
+    public void deleteFavouriteMovie(final String movieTitle){
+        favouriteMovieDao.findFavouriteMovieByTitle(movieTitle)
+                .orElseThrow(() -> new RuntimeException(ApiErrorMessage.MOVIE_CANT_BE_DELETED));
     }
 
 }

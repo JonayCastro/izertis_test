@@ -1,7 +1,7 @@
 package com.zeven.movie_api;
 
 import com.zeven.movie_api.services.MovieService;
-import com.zeven.movie_api.vo.MovieVO;
+import com.zeven.movie_api.dto.MovieDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,7 +19,7 @@ class FavouriteMovieApiApplicationTests {
 
     @Test
     void canGetMovieList(){
-        List<MovieVO> movies = movieService.getMoviesByName("Injection");
+        List<MovieDTO> movies = movieService.getMoviesByName("Injection");
         assertNotNull(movies);
     }
 

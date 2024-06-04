@@ -1,7 +1,6 @@
 package com.zeven.movie_api.services;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zeven.movie_api.config.ApiErrorMessage;
 import com.zeven.movie_api.daos.FavouriteMovieDao;
 import com.zeven.movie_api.dto.MovieDTO;
@@ -10,9 +9,6 @@ import com.zeven.movie_api.entities.FavouriteMovie;
 import com.zeven.movie_api.mappers.MovieMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -22,7 +18,6 @@ import java.util.List;
 public class MovieService {
 
     private final WebClient webClient;
-    private final ObjectMapper objectMapper;
     private final FavouriteMovieDao favouriteMovieDao;
     private final MovieMapper mapper;
 
@@ -30,9 +25,8 @@ public class MovieService {
     private String apiKey;
 
     @Autowired
-    public MovieService(final WebClient webClient, final ObjectMapper objectMapper, final FavouriteMovieDao favouriteMovieDao, final MovieMapper mapper) {
+    public MovieService(final WebClient webClient, final FavouriteMovieDao favouriteMovieDao, final MovieMapper mapper) {
         this.webClient = webClient;
-        this.objectMapper = objectMapper;
         this.favouriteMovieDao = favouriteMovieDao;
         this.mapper = mapper;
     }
@@ -50,18 +44,9 @@ public class MovieService {
                 .block();
     }
 
-    public ResponseEntity<Object> saveFavouriteMovie(final MovieDTO movieDTO){
+    public void saveFavouriteMovie(final MovieDTO movieDTO){
         FavouriteMovie favouriteMovie = mapper.movieVOToFavouriteMovie(movieDTO);
-        ResponseEntity<Object> response = new ResponseEntity<>(favouriteMovie, HttpStatus.CREATED);
-        try{
-            favouriteMovieDao.save(favouriteMovie);
-        } catch (DataIntegrityViolationException exception){
-            response = new ResponseEntity<>(ApiErrorMessage.FAVOURITE_MOVIE_ALREADY_EXISTS, HttpStatus.CONFLICT);
-        } catch (Exception exception){
-            String errorMessage = ApiErrorMessage.ANY_EXCEPTION + exception.getMessage();
-            response = new ResponseEntity<>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return response;
+        favouriteMovieDao.save(favouriteMovie);
     }
 
     public List<FavouriteMovie> getFavouriteMovieList(){

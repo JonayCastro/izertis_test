@@ -37,8 +37,9 @@ public class MovieController {
         return movieService.getFavouriteMovieByName(movieTitle);
     }
     @PostMapping
-    public ResponseEntity<Object> saveFavouriteMovie(@RequestBody final MovieDTO movieDTO) {
-        return movieService.saveFavouriteMovie(movieDTO);
+    public ResponseEntity<String> saveFavouriteMovie(@RequestBody final MovieDTO movieDTO) {
+        movieService.saveFavouriteMovie(movieDTO);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
     @DeleteMapping
     public void deleteFavouriteMovie(@RequestParam final String movieTitle) {
